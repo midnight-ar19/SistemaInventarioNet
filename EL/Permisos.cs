@@ -15,5 +15,6 @@ namespace EL
 
         [Required, StringLength(100)]
         [Column(name: "nombre_permiso")]
+        public string nomnre_permiso { get; set; }
     }
 }
