@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace EL
 {
-    [Table("Categorias")]
+    [Table("categorias")]
     public class Categoria
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int IdCategoria { get; set; }
 
-        [Required,StringLength(100)]
-        [Column(name: "nombre_categoria")]
-        public string NombreCategoria { get; set; }
+        [Required, StringLength(100)]
+        [Column(name: "nombre")]
+        [Index(IsUnique = true)]
+        public string Nombre { get; set; }
     }
 }

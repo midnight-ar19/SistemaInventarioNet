@@ -8,15 +8,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EL
 {
-    [Table("Marcas")]
-    public class Marcas
+    [Table("marcas")]
+    public class Marca
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int IdMarca { get; set; }
 
         [Required, StringLength(100)]
         [Column(name: "nombre")]
+        [Index(IsUnique = true)]
         public string Nombre { get; set; }
     }
 }
