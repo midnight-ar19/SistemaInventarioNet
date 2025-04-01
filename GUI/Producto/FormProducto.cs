@@ -21,5 +21,10 @@ namespace GUI.Producto
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MassagBox.Show("Datos guardados exitosamente");
+        }
     }
 }

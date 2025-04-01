@@ -33,6 +33,9 @@
             this.txtPrecioCompraProducto = new System.Windows.Forms.TextBox();
             this.txtPrecioVentaProducto = new System.Windows.Forms.TextBox();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +78,42 @@
             this.txtNombreProducto.Size = new System.Drawing.Size(227, 22);
             this.txtNombreProducto.TabIndex = 5;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(96, 319);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(81, 38);
+            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(301, 319);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(81, 38);
+            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(199, 319);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(81, 38);
+            this.btnEditar.TabIndex = 8;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
             // FormProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1449, 720);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtNombreProducto);
             this.Controls.Add(this.txtPrecioVentaProducto);
             this.Controls.Add(this.txtPrecioCompraProducto);
@@ -100,5 +134,8 @@
         private System.Windows.Forms.TextBox txtPrecioCompraProducto;
         private System.Windows.Forms.TextBox txtPrecioVentaProducto;
         private System.Windows.Forms.TextBox txtNombreProducto;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
