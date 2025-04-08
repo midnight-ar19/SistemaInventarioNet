@@ -10,7 +10,7 @@ namespace BLL
     {
         public static List<Categoria> ObtenerTodos()
         {
-            using (var db = new AppDbContext())
+            using (var db = new InventarioDbContext())
             {
                 return db.Categorias.ToList();
             }
