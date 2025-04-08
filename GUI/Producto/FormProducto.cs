@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.CategoriaBLL;
 
 namespace GUI.Producto
 {
@@ -40,6 +41,20 @@ namespace GUI.Producto
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CargarCategorias()
+        {
+            CategoriaBLL categoria = new CategoriaBLL();
+            var categorias = CategoriaBLL.ObtenerTodos();
+            comboCategoria.DataSource = categorias;
+            comboCategoria.DisplayMember = "Nombre"; // Ajusta esto según el nombre de tu propiedad
+            comboCategoria.ValueMember = "Id"; // Ajusta esto según el nombre del ID en tu entidad
         }
     }
 }

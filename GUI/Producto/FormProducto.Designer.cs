@@ -128,16 +128,17 @@
             // 
             this.comboCategoria.FormattingEnabled = true;
             this.comboCategoria.Location = new System.Drawing.Point(991, 61);
-            this.comboCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.comboCategoria.Name = "comboCategoria";
             this.comboCategoria.Size = new System.Drawing.Size(296, 24);
             this.comboCategoria.TabIndex = 9;
+            this.comboCategoria.SelectedIndexChanged += new System.EventHandler(this.comboCategoria_SelectedIndexChanged);
             // 
             // comboProveedor
             // 
             this.comboProveedor.FormattingEnabled = true;
             this.comboProveedor.Location = new System.Drawing.Point(991, 110);
-            this.comboProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboProveedor.Margin = new System.Windows.Forms.Padding(4);
             this.comboProveedor.Name = "comboProveedor";
             this.comboProveedor.Size = new System.Drawing.Size(296, 24);
             this.comboProveedor.TabIndex = 10;
@@ -146,7 +147,7 @@
             // 
             this.comboMarca.FormattingEnabled = true;
             this.comboMarca.Location = new System.Drawing.Point(991, 154);
-            this.comboMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboMarca.Margin = new System.Windows.Forms.Padding(4);
             this.comboMarca.Name = "comboMarca";
             this.comboMarca.Size = new System.Drawing.Size(296, 24);
             this.comboMarca.TabIndex = 11;
