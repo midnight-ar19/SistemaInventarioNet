@@ -68,6 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InventarioDbContext.cs" />
+    <Compile Include="Migrations\202504081901173_MigracionInicial.cs" />
+    <Compile Include="Migrations\202504081901173_MigracionInicial.Designer.cs">
+      <DependentUpon>202504081901173_MigracionInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +84,11 @@
       <Project>{c0de784d-9fa9-4d74-9a63-6a21c875f923}</Project>
       <Name>EL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202504081901173_MigracionInicial.resx">
+      <DependentUpon>202504081901173_MigracionInicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
