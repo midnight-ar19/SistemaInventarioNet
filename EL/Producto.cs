@@ -24,11 +24,11 @@ namespace EL
         public string Descripcion { get; set; }
 
         [Required]
-        [Column(name: "precio_compra", TypeName = "decimal(10,2)")]
+        [Column(name: "precio_compra")]
         public decimal PrecioCompra { get; set; }
 
         [Required]
-        [Column(name: "precio_venta", TypeName = "decimal(10,2)")]
+        [Column(name: "precio_venta")]
         public decimal PrecioVenta { get; set; }
 
         [Column(name: "id_categoria")]

@@ -31,7 +31,7 @@ namespace EL
         public int Cantidad { get; set; }
 
         [Column(name: "fecha", TypeName = "datetime")]
-        public DateTime Fecha { get; set; } = DateTime.Now; // Valor predeterminado en memoria
+        public DateTime Fecha { get; set; } = DateTime.Now;
 
         [Column(name: "id_usuario")]
         public int? IdUsuario { get; set; }

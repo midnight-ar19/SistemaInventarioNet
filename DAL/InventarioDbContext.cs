@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using EL;
 
     public class InventarioDbContext : DbContext
     {
@@ -32,7 +33,7 @@
 
         public virtual DbSet<Producto> Productos { get; set; }
 
-        public virtual DbSet<Proveedor> Proveedores { get; set;
+        public virtual DbSet<Proveedor> Proveedores { get; set; }
 
         public virtual DbSet<Usuario> Usuarios { get; set; }
 

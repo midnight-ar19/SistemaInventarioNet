@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace BLL
-{
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using DAL;      // Referencia al proyecto DAL
-    using EL;       // Referencia al proyecto EL
+    using DAL;
+    using EL;
 
     namespace BLL
     {
@@ -21,7 +15,7 @@ namespace BLL
             {
                 try
                 {
-                    using (var contexto = new AppDbContext())
+                    using (var contexto = new InventarioDbContext())
                     {
                         contexto.Productos.Add(producto);
                         contexto.SaveChanges();
@@ -36,7 +30,7 @@ namespace BLL
             // Método para obtener todos los productos
             public List<Producto> ObtenerTodos()
             {
-                using (var contexto = new AppDbContext())
+                using (var contexto = new InventarioDbContext())
                 {
                     return contexto.Productos
                                    .Include("Categoria")
@@ -49,7 +43,7 @@ namespace BLL
             // Método para obtener un producto por su ID
             public Producto ObtenerPorId(int id)
             {
-                using (var contexto = new AppDbContext())
+                using (var contexto = new InventarioDbContext())
                 {
                     return contexto.Productos
                                    .Include("Categoria")
@@ -61,4 +55,3 @@ namespace BLL
         }
     }
 
-}
