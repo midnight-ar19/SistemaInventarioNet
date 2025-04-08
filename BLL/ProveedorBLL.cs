@@ -2,6 +2,7 @@
 using EL;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace BLL
 {
@@ -9,7 +10,7 @@ namespace BLL
     {
         public static List<Proveedor> ObtenerTodos()
         {
-            using (var db = new AppDbContext())
+            using (var db = new InventarioDbContext())
             {
                 return db.Proveedores.ToList();
             }
