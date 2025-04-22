@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InventarioDbContext.cs" />
+    <Compile Include="MarcaDAL.cs" />
     <Compile Include="Migrations\202504081901173_MigracionInicial.cs" />
     <Compile Include="Migrations\202504081901173_MigracionInicial.Designer.cs">
       <DependentUpon>202504081901173_MigracionInicial.cs</DependentUpon>
