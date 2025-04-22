@@ -52,6 +52,21 @@
                                    .FirstOrDefault(p => p.IdProducto == id);
                 }
             }
+
+           //Método para buscar por nombre
+           public Producto ObtenerPorNombre(string nombre) {
+
+            using (var contexto = new InventarioDbContext())
+            {
+                return contexto.Productos
+                               .Include("Categoria")
+                               .Include("Marca")
+                               .Include("Proveedor")
+                               .FirstOrDefault(p => p.Nombre == nombre);
+            }
+
+           }
         }
+
     }
 
