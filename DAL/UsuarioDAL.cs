@@ -2,23 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using EL;
 
 
 namespace DAL
 {
-    // Clase Usuario con propiedades necesarias
-    public class Usuario
-    {
-        public int Id { get; set; }
-
-        public string Nombre { get; set; }
-
-        public string Correo { get; set; }
-
-        public string ContraseñaHash { get; set; }
-
-        public DateTime FechaRegistro { get; set; }
-    }
 
     // Clase UsuarioDAL
     public class UsuarioDAL
@@ -42,18 +30,17 @@ namespace DAL
             }
             catch (DbUpdateException ex)
             {
-                // Manejar error de duplicados (ej: correo ya registrado)
                 throw new Exception("Error al registrar el usuario: " + ex.InnerException?.Message);
             }
         }
 
         // Iniciar sesión (buscar por correo y contraseña)
-        public Usuario IniciarSesionUsuario(string correo, string contraseñaHash)
+        public Usuario IniciarSesionUsuario(string usuario, string contrasena)
         {
             try
             {
                 return _db.Usuarios
-                    .FirstOrDefault(u => u.Correo == correo && u.ContraseñaHash == contraseñaHash);
+                    .FirstOrDefault(u => u.UsuarioNombre == usuario && u.Contrasena == contrasena);
             }
             catch (Exception)
             {
@@ -73,8 +60,16 @@ namespace DAL
 
         public void ActualizarUsuario(Usuario usuario)
         {
-            object value = _db.Usuarios.Update(usuario);
-            
+            {
+                var usuarioExistente = _db.Usuarios.Find(usuario.IdUsuario);
+                if (usuarioExistente == null)
+                {
+                    throw new Exception("El usuario no existe.");
+                }
+
+                _db.Entry(usuarioExistente).CurrentValues.SetValues(usuario);
+                _db.SaveChanges();
+            }
         }
 
         public void EliminarUsuario(int id)
