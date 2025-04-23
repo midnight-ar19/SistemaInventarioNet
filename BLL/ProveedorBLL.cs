@@ -8,7 +8,7 @@ namespace BLL
 {
     public class ProveedorBLL
     {
-        private readonly ProveedorDAL proveedorDAL;
+        private readonly ProveedorDAL _proveedorDAL;
 
         public ProveedorBLL(ProveedorDAL proveedorDAL)
         {
@@ -17,13 +17,13 @@ namespace BLL
         //obtener todos los proveedores
         public List<Proveedor> ObtenerProveedor()
         {
-            return _proveedorDAL.ObtenerProveedor();
+            return _proveedorDAL.ObtenerProveedores();
         }
 
         //agregar un nuevo proveedor
         public void AgregarProveedor(Proveedor proveedor)
         {
-            _ProveedorDAL.AgregarProveedor(proveedor);
+            _proveedorDAL.AgregarProveedor(proveedor);
         } 
 
         //Buscar proveedor por su ID

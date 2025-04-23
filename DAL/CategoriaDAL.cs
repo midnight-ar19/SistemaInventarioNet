@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EL;
 
 namespace DAL
 {
@@ -56,7 +57,7 @@ namespace DAL
         {
             try
             {
-                _db.Entry(categoria).State = EntityState.Modified;
+                _db.Entry(categoria);
                 _db.SaveChanges();
             }
             catch (Exception)

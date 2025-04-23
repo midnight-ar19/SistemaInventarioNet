@@ -1,19 +1,41 @@
-﻿using DAL;
+﻿using System.Collections.Generic;
+using DAL;
 using EL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace BLL
 {
     public class CategoriaBLL
     {
-        public static List<Categoria> ObtenerTodos()
+        private readonly CategoriaDAL _categoriaDAL;
+
+        public CategoriaBLL()
         {
-            using (var db = new InventarioDbContext())
-            {
-                return db.Categorias.ToList();
-            }
+            _categoriaDAL = new CategoriaDAL(new InventarioDbContext());
+        }
+
+        public List<Categoria> ObtenerTodas()
+        {
+            return _categoriaDAL.GetAll();
+        }
+
+        public void Insertar(Categoria categoria)
+        {
+            _categoriaDAL.AgregarCategoria(categoria);
+        }
+
+        public Categoria Buscar(int id)
+        {
+            return _categoriaDAL.BuscarCategoria(id);
+        }
+
+        public void Actualizar(Categoria categoria)
+        {
+            _categoriaDAL.ActualizarCategoria(categoria);
+        }
+
+        public void Eliminar(int id)
+        {
+            _categoriaDAL.EliminarCategoria(id);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace GUI.Producto
                 };
 
                 // Llamar al método Insertar de la BLL
-                _productoBLL.Insertar(producto);
+                _productoBLL.AgregarProducto(producto);
 
                 // Mostrar mensaje de éxito
                 MessageBox.Show("Producto insertado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -103,7 +103,7 @@ namespace GUI.Producto
         private void FormProducto_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'inventarioDB.categorias' Puede moverla o quitarla según sea necesario.
-            this.categoriasTableAdapter1.Fill(this.inventarioDB.categorias);
+            //this.categoriasTableAdapter1.Fill(this.inventarioDB.categorias);
             // TODO: esta línea de código carga datos en la tabla 'inventarioDBv2DataSet3.productos' Puede moverla o quitarla según sea necesario.
             this.productosTableAdapter.Fill(this.inventarioDBv2DataSet3.productos);
             // TODO: esta línea de código carga datos en la tabla 'inventarioDBv2DataSet2.proveedores' Puede moverla o quitarla según sea necesario.

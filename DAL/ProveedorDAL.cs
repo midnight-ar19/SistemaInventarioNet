@@ -20,11 +20,11 @@ namespace DAL
 
         //Obtener listado de todos los proveedores
 
-        public List<Proveedor> ObtenerProveedores(
+        public List<Proveedor> ObtenerProveedores()
         {
             try
             {
-                return _db.Proveedores.Tolist();
+                return _db.Proveedores.ToList();
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace DAL
         {
             try
             {
-                return _db.Proveedor.Find(id);
+                return _db.Proveedores.Find(id);
             }
             catch (Exception ex)
             {
@@ -62,11 +62,11 @@ namespace DAL
             try
             {
                 _db.Entry(proveedor);
-                _db.SaveChanger();
+                _db.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al actualizar el proveedor")
+                throw new Exception("Error al actualizar el proveedor");
             }
         }
         //Eliminar proveedor
@@ -74,7 +74,7 @@ namespace DAL
         {
             try
             {
-                var proveedor = _db.Proveedor.Find(id);
+                var proveedor = _db.Proveedores.Find(id);
                 if (proveedor != null)
                 {
                     _db.Proveedores.Remove(proveedor);
