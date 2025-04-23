@@ -8,12 +8,40 @@ namespace BLL
 {
     public class ProveedorBLL
     {
-        public static List<Proveedor> ObtenerTodos()
+        private readonly ProveedorDAL proveedorDAL;
+
+        public ProveedorBLL(ProveedorDAL proveedorDAL)
         {
-            using (var db = new InventarioDbContext())
-            {
-                return db.Proveedores.ToList();
-            }
+            _proveedorDAL = proveedorDAL;
+        }
+        //obtener todos los proveedores
+        public List<Proveedor> ObtenerProveedor()
+        {
+            return _proveedorDAL.ObtenerProveedor();
+        }
+
+        //agregar un nuevo proveedor
+        public void AgregarProveedor(Proveedor proveedor)
+        {
+            _ProveedorDAL.AgregarProveedor(proveedor);
+        } 
+
+        //Buscar proveedor por su ID
+        public Proveedor BuscarProveedor(int id)
+        {
+            return _proveedorDAL.BuscarProveedor(id);
+        }
+
+        //Actualizar un proveedor
+        public void ActualizarProveedor(Proveedor proveedor)
+        {
+            _proveedorDAL.ActualizarProveedor(proveedor);
+        }
+
+        //Eliminar un proveedor por su ID
+        public void EliminarProveedor(int id)
+        {
+            _proveedorDAL.EliminarProveedor(id);
         }
     }
 }

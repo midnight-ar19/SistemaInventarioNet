@@ -19,7 +19,7 @@ namespace BLL
 
         // Obtener todas las marcas
         public List<Marca> ObtenerMarcas()
-        {
+        {   
             return _marcaDAL.ObtenerMarcas();
         }
 
