@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EL;
 
 namespace DAL
 {
@@ -21,11 +22,11 @@ namespace DAL
         {
             try
             {
-                return _db.producto.Tolist();
+                return _db.Productos.ToList();
             }
             catch (Exception ex)
             {
-                throw new Eception("Error al obtener productos", ex);
+                throw new Exception("Error al obtener productos", ex);
             }
 
         }
@@ -34,7 +35,7 @@ namespace DAL
         {
             try
             {
-                _db.productos.Add(producto);
+                _db.Productos.Add(producto);
                 _db.SaveChanges();
             }
 
@@ -49,7 +50,7 @@ namespace DAL
         {
             try 
             {
-                return _db.productos.Find(id);
+                return _db.Productos.Find(id);
             
             }
             catch (Exception ex) 
@@ -78,7 +79,7 @@ namespace DAL
         {
             try 
             {
-                var producto = _db.productos.find(id);
+                var producto = _db.Productos.Find(id);
                 if (producto != null) 
                 {
                     _db.Productos.Remove(producto);

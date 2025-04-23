@@ -10,63 +10,43 @@
     {
         public class ProductoBLL
         {
-            // Método para insertar un producto en la base de datos
-            public void Insertar(Producto producto)
-            {
-                try
-                {
-                    using (var contexto = new InventarioDbContext())
-                    {
-                        contexto.Productos.Add(producto);
-                        contexto.SaveChanges();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error al insertar el producto: " + ex.Message);
-                }
-            }
+        private readonly ProductoDAL _productoDAL;
 
-            // Método para obtener todos los productos
-            public List<Producto> ObtenerTodos()
-            {
-                using (var contexto = new InventarioDbContext())
-                {
-                    return contexto.Productos
-                                   .Include("Categoria")
-                                   .Include("Marca")
-                                   .Include("Proveedor")
-                                   .ToList();
-                }
-            }
-
-            // Método para obtener un producto por su ID
-            public Producto ObtenerPorId(int id)
-            {
-                using (var contexto = new InventarioDbContext())
-                {
-                    return contexto.Productos
-                                   .Include("Categoria")
-                                   .Include("Marca")
-                                   .Include("Proveedor")
-                                   .FirstOrDefault(p => p.IdProducto == id);
-                }
-            }
-
-           //Método para buscar por nombre
-           public Producto ObtenerPorNombre(string nombre) {
-
-            using (var contexto = new InventarioDbContext())
-            {
-                return contexto.Productos
-                               .Include("Categoria")
-                               .Include("Marca")
-                               .Include("Proveedor")
-                               .FirstOrDefault(p => p.Nombre == nombre);
-            }
-
-           }
+        public ProductoBLL(ProductoDAL productoDAL)
+        {
+            _productoDAL = productoDAL;
         }
+
+        // Obtener todos los productos
+        public List<Producto> ObtenerProductos()
+        {
+            return _productoDAL.ObtenerProductos();
+        }
+
+        // Agregar producto
+        public void AgregarProducto(Producto producto)
+        {
+            _productoDAL.AgregarProducto(producto);
+        }
+
+        // Buscar producto por ID
+        public Producto BuscarProducto(int id)
+        {
+            return _productoDAL.BuscarProducto(id);
+        }
+
+        // Actualizar producto
+        public void ActualizarProducto(Producto producto)
+        {
+            _productoDAL.ActualizarProducto(producto);
+        }
+
+        // Eliminar producto
+        public void EliminarProducto(int id)
+        {
+            _productoDAL.EliminarProducto(id);
+        }
+    }
 
     }
 

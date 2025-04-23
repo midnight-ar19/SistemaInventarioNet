@@ -70,6 +70,7 @@
             this.productosTableAdapter = new GUI.InventarioDBv2DataSet3TableAdapters.productosTableAdapter();
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.inventarioDB = new GUI.InventarioDB();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioDBv2DataSet3)).BeginInit();
@@ -81,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventarioDBv2DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioDBv2DataSetBindingSource)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioDB)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProductos
@@ -254,14 +256,14 @@
             // 
             this.comboCategoria.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.categoriasBindingSource, "IdCategoria", true));
             this.comboCategoria.DataSource = this.categoriasBindingSource;
-            this.comboCategoria.DisplayMember = "nombre";
+            this.comboCategoria.DisplayMember = "IdCategoria";
             this.comboCategoria.FormattingEnabled = true;
             this.comboCategoria.Location = new System.Drawing.Point(991, 61);
             this.comboCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.comboCategoria.Name = "comboCategoria";
             this.comboCategoria.Size = new System.Drawing.Size(296, 24);
             this.comboCategoria.TabIndex = 9;
-            this.comboCategoria.ValueMember = "IdCategoria";
+            this.comboCategoria.ValueMember = "nombre";
             this.comboCategoria.SelectedIndexChanged += new System.EventHandler(this.comboCategoria_SelectedIndexChanged);
             // 
             // categoriasBindingSource
@@ -418,7 +420,7 @@
             this.fillByToolStripButton});
             this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(1371, 27);
+            this.fillByToolStrip.Size = new System.Drawing.Size(1371, 31);
             this.fillByToolStrip.TabIndex = 19;
             this.fillByToolStrip.Text = "fillByToolStrip";
             // 
@@ -429,6 +431,11 @@
             this.fillByToolStripButton.Size = new System.Drawing.Size(48, 24);
             this.fillByToolStripButton.Text = "FillBy";
             this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            // 
+            // inventarioDB
+            // 
+            this.inventarioDB.DataSetName = "InventarioDB";
+            this.inventarioDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // FormProducto
             // 
@@ -470,6 +477,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventarioDBv2DataSetBindingSource)).EndInit();
             this.fillByToolStrip.ResumeLayout(false);
             this.fillByToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioDB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,5 +526,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idmarcaDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStrip fillByToolStrip;
         private System.Windows.Forms.ToolStripButton fillByToolStripButton;
+        private InventarioDB inventarioDB;
     }
 }
