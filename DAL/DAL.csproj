@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriaDAL.cs" />
     <Compile Include="InventarioDAL.cs" />
     <Compile Include="InventarioDbContext.cs" />
     <Compile Include="MarcaDAL.cs" />
