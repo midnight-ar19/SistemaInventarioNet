@@ -74,6 +74,7 @@
       <DependentUpon>202504081901173_MigracionInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ProductoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioDAL.cs" />
   </ItemGroup>
