@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMarca.Designer.cs">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventarioDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +95,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmMarca.resx">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Producto\FormProducto.resx">
       <DependentUpon>FormProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +189,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{65987df4-5a9f-4809-8e4f-4ed06a23a6af}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{2714c540-9696-4cf6-bd0b-b5b5398d1cb2}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\EL\EL.csproj">
       <Project>{C0DE784D-9FA9-4D74-9A63-6A21C875F923}</Project>
