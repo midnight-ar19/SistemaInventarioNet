@@ -62,6 +62,12 @@
     <Compile Include="FrmMarca.Designer.cs">
       <DependentUpon>FrmMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="IngresarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresarUsuario.Designer.cs">
+      <DependentUpon>IngresarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventarioDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +103,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMarca.resx">
       <DependentUpon>FrmMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresarUsuario.resx">
+      <DependentUpon>IngresarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\FormProducto.resx">
       <DependentUpon>FormProducto.cs</DependentUpon>

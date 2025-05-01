@@ -15,6 +15,12 @@ namespace BLL
         public UsuarioBLL(UsuarioDAL usuarioDAL)
         {
             _usuarioDAL = usuarioDAL;
+
+        }
+
+        //Agrge este constructor vacio para poder iniciar todo automaticamnte 
+        public UsuarioBLL() : this(new UsuarioDAL(new InventarioDbContext()))
+        { 
         }
 
         // Registrar un nuevo usuario
