@@ -17,6 +17,10 @@
             _productoDAL = productoDAL;
         }
 
+        public ProductoBLL()
+        {
+        }
+
         // Obtener todos los productos
         public List<Producto> ObtenerProductos()
         {

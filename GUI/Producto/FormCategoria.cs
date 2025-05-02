@@ -40,6 +40,8 @@ namespace GUI.Producto
 
         private void FormCategoria_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'inventarioDB.categorias' Puede moverla o quitarla según sea necesario.
+            this.categoriasTableAdapter.Fill(this.inventarioDB.categorias);
             // Puedes dejar esto vacío o usarlo para inicializaciones adicionales
         }
 

@@ -420,9 +420,10 @@
             this.fillByToolStripButton});
             this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(1371, 31);
+            this.fillByToolStrip.Size = new System.Drawing.Size(1371, 27);
             this.fillByToolStrip.TabIndex = 19;
             this.fillByToolStrip.Text = "fillByToolStrip";
+            this.fillByToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.fillByToolStrip_ItemClicked);
             // 
             // fillByToolStripButton
             // 

@@ -1,23 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using DAL; 
-using EL;  
+using GUI.Producto;
 
 namespace GUI
 {
-    public partial class FrmMarca : Form
+    public partial class FrmCategorias : Form
     {
-        private readonly MarcaBLL _marcaBLL; private DataGridView dgvMarcas; private TextBox txtNombre; private Button btnAgregar; private Button btnActualizar; private Button btnEliminar; private Button btnLimpiar; private Label lblTitle; private int? selectedMarcaId = null;
+        private CategoriaBLL _categoriaBLL;
+        private DataGridView dgvCategorias; 
+        private TextBox txtNombre; 
+        private Button btnAgregar; 
+        private Button btnActualizar; 
+        private Button btnEliminar; 
+        private Button btnLimpiar; 
+        private Label lblTitle; 
+        private int? selectedCategoriaId = null;
 
-        public FrmMarca()
+        public FrmCategorias()
         {
-            // Inicializar MarcaBLL con MarcaDAL
-            _marcaBLL = new MarcaBLL(new MarcaDAL(new InventarioDbContext()));
+            _categoriaBLL = new CategoriaBLL();
 
             // Configuración del formulario
-            this.Text = "Gestión de Marcas";
+            this.Text = "Gestión de Categorías";
             this.Size = new Size(800, 600);
             this.MinimumSize = new Size(600, 400);
             this.StartPosition = FormStartPosition.CenterParent;
@@ -28,7 +40,7 @@ namespace GUI
             // Título
             lblTitle = new Label
             {
-                Text = "Administración de Marcas",
+                Text = "Administración de Categorías",
                 Font = new Font("Segoe UI", 18, FontStyle.Bold),
                 Size = new Size(500, 30),
                 Location = new Point(20, 20),
@@ -39,7 +51,7 @@ namespace GUI
             // Etiqueta y campo para Nombre
             Label lblNombre = new Label
             {
-                Text = "Nombre de la Marca:",
+                Text = "Nombre de la Categoría:",
                 Font = new Font("Segoe UI", 12),
                 Size = new Size(200, 20),
                 Location = new Point(20, 70),
@@ -117,8 +129,8 @@ namespace GUI
             btnLimpiar.Click += BtnLimpiar_Click;
             this.Controls.Add(btnLimpiar);
 
-            // Tabla de marcas
-            dgvMarcas = new DataGridView
+            // Tabla de categorías
+            dgvCategorias = new DataGridView
             {
                 Size = new Size(this.ClientSize.Width - 40, this.ClientSize.Height - 210),
                 Location = new Point(20, 200),
@@ -129,34 +141,34 @@ namespace GUI
                 ReadOnly = true,
                 AllowUserToAddRows = false
             };
-            dgvMarcas.SelectionChanged += DgvMarcas_SelectionChanged;
-            this.Controls.Add(dgvMarcas);
+            dgvCategorias.SelectionChanged += DgvCategorias_SelectionChanged;
+            this.Controls.Add(dgvCategorias);
 
             // Ajustar diseño al redimensionar
             this.Resize += (s, e) => AdjustLayout();
 
             // Cargar datos iniciales
-            LoadMarcas();
+            LoadCategorias();
         }
 
         private void AdjustLayout()
         {
-            dgvMarcas.Size = new Size(this.ClientSize.Width - 40, this.ClientSize.Height - 210);
+            dgvCategorias.Size = new Size(this.ClientSize.Width - 40, this.ClientSize.Height - 210);
         }
 
-        private void LoadMarcas()
+        private void LoadCategorias()
         {
             try
             {
-                var marcas = _marcaBLL.ObtenerMarcas();
-                dgvMarcas.DataSource = null;
-                dgvMarcas.DataSource = marcas;
-                dgvMarcas.Columns["IdMarca"].HeaderText = "ID";
-                dgvMarcas.Columns["Nombre"].HeaderText = "Nombre de la Marca";
+                var categorias = _categoriaBLL.ObtenerTodas();
+                dgvCategorias.DataSource = null;
+                dgvCategorias.DataSource = categorias;
+                dgvCategorias.Columns["IdCategoria"].HeaderText = "ID";
+                dgvCategorias.Columns["Nombre"].HeaderText = "Nombre de la Categoría";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar marcas: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar categorías: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -166,19 +178,19 @@ namespace GUI
             {
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show("El nombre de la marca es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El nombre de la categoría es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                var marca = new Marca { Nombre = txtNombre.Text.Trim() };
-                _marcaBLL.AgregarMarca(marca);
-                MessageBox.Show("Marca agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadMarcas();
+                var categoria = new EL.Categoria { Nombre = txtNombre.Text.Trim() };
+                _categoriaBLL.Insertar(categoria);
+                MessageBox.Show("Categoría agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadCategorias();
                 ClearForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al agregar marca: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al agregar categoría: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -186,34 +198,34 @@ namespace GUI
         {
             try
             {
-                if (!selectedMarcaId.HasValue)
+                if (!selectedCategoriaId.HasValue)
                 {
-                    MessageBox.Show("Selecciona una marca para actualizar.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selecciona una categoría para actualizar.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show("El nombre de la marca es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El nombre de la categoría es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                var marca = _marcaBLL.BuscarMarca(selectedMarcaId.Value);
-                if (marca == null)
+                var categoria = _categoriaBLL.Buscar(selectedCategoriaId.Value);
+                if (categoria == null)
                 {
-                    MessageBox.Show("La marca seleccionada no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La categoría seleccionada no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                marca.Nombre = txtNombre.Text.Trim();
-                _marcaBLL.ActualizarMarca(marca);
-                MessageBox.Show("Marca actualizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadMarcas();
+                categoria.Nombre = txtNombre.Text.Trim();
+                _categoriaBLL.Actualizar(categoria);
+                MessageBox.Show("Categoría actualizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadCategorias();
                 ClearForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al actualizar marca: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al actualizar categoría: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -221,24 +233,24 @@ namespace GUI
         {
             try
             {
-                if (!selectedMarcaId.HasValue)
+                if (!selectedCategoriaId.HasValue)
                 {
-                    MessageBox.Show("Selecciona una marca para eliminar.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selecciona una categoría para eliminar.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                var result = MessageBox.Show("¿Estás seguro de que deseas eliminar esta marca?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show("¿Estás seguro de que deseas eliminar esta categoría?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    _marcaBLL.EliminarMarca(selectedMarcaId.Value);
-                    MessageBox.Show("Marca eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadMarcas();
+                    _categoriaBLL.Eliminar(selectedCategoriaId.Value);
+                    MessageBox.Show("Categoría eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadCategorias();
                     ClearForm();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al eliminar marca: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al eliminar categoría: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -247,32 +259,28 @@ namespace GUI
             ClearForm();
         }
 
-        private void DgvMarcas_SelectionChanged(object sender, EventArgs e)
+        private void DgvCategorias_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvMarcas.SelectedRows.Count > 0)
+            if (dgvCategorias.SelectedRows.Count > 0)
             {
-                selectedMarcaId = (int)dgvMarcas.SelectedRows[0].Cells["IdMarca"].Value;
-                txtNombre.Text = dgvMarcas.SelectedRows[0].Cells["Nombre"].Value.ToString();
+                selectedCategoriaId = (int)dgvCategorias.SelectedRows[0].Cells["IdCategoria"].Value;
+                txtNombre.Text = dgvCategorias.SelectedRows[0].Cells["Nombre"].Value.ToString();
             }
             else
             {
-                selectedMarcaId = null;
+                selectedCategoriaId = null;
             }
         }
 
         private void ClearForm()
         {
             txtNombre.Text = string.Empty;
-            selectedMarcaId = null;
-            dgvMarcas.ClearSelection();
-        }
-       
-        private void FrmMarca_Load(object sender, EventArgs e)
-        {
-          
+            selectedCategoriaId = null;
+            dgvCategorias.ClearSelection();
         }
 
-        private void FrmMarca_Load_1(object sender, EventArgs e)
+
+        private void FrmCategorias_Load(object sender, EventArgs e)
         {
 
         }

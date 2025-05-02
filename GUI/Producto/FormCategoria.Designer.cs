@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.Label();
             this.textnombre = new System.Windows.Forms.TextBox();
@@ -38,7 +39,14 @@
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAcciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventarioDB = new GUI.InventarioDB();
+            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriasTableAdapter = new GUI.InventarioDBTableAdapters.categoriasTableAdapter();
+            this.fKdboproductosdbocategoriasidcategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioDB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKdboproductosdbocategoriasidcategoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -140,6 +148,25 @@
             this.colAcciones.Name = "colAcciones";
             this.colAcciones.Width = 150;
             // 
+            // inventarioDB
+            // 
+            this.inventarioDB.DataSetName = "InventarioDB";
+            this.inventarioDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriasBindingSource
+            // 
+            this.categoriasBindingSource.DataMember = "categorias";
+            this.categoriasBindingSource.DataSource = this.inventarioDB;
+            // 
+            // categoriasTableAdapter
+            // 
+            this.categoriasTableAdapter.ClearBeforeFill = true;
+            // 
+            // fKdboproductosdbocategoriasidcategoriaBindingSource
+            // 
+            this.fKdboproductosdbocategoriasidcategoriaBindingSource.DataMember = "FK_dbo.productos_dbo.categorias_id_categoria";
+            this.fKdboproductosdbocategoriasidcategoriaBindingSource.DataSource = this.categoriasBindingSource;
+            // 
             // dgvCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -156,6 +183,9 @@
             this.Text = "FormCategoria";
             this.Load += new System.EventHandler(this.FormCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioDB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKdboproductosdbocategoriasidcategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +203,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAcciones;
+        private InventarioDB inventarioDB;
+        private System.Windows.Forms.BindingSource categoriasBindingSource;
+        private InventarioDBTableAdapters.categoriasTableAdapter categoriasTableAdapter;
+        private System.Windows.Forms.BindingSource fKdboproductosdbocategoriasidcategoriaBindingSource;
     }
 }

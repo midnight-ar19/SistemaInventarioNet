@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class FrmMarca
+    partial class FrmDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,18 @@
         {
             this.SuspendLayout();
             // 
-            // FrmMarca
+            // FrmDashboard
             // 
-            this.ClientSize = new System.Drawing.Size(282, 253);
-            this.Name = "FrmMarca";
-            this.Load += new System.EventHandler(this.FrmMarca_Load_1);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "FrmDashboard";
+            this.Text = "FrmDashboard";
+            this.Load += new System.EventHandler(this.FrmDashboard_Load);
             this.ResumeLayout(false);
 
         }
-          
+
         #endregion
     }
 }

@@ -142,5 +142,9 @@ namespace GUI.Producto
 
         }
 
+        private void fillByToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
