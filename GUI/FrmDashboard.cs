@@ -111,7 +111,7 @@ namespace GUI
                     formToOpen = new Form { Text = "Gestión de Usuarios", Size = new Size(600, 400) };
                     break;
                 case "Productos":
-                    formToOpen = new Form { };
+                    formToOpen = new Interfaces.FormProductos();
                     break;
                 case "Gestión de Inventario":
                     formToOpen = new Form { Text = "Gestión de Inventario", Size = new Size(600, 400) };

@@ -70,14 +70,30 @@ namespace DAL
         {
             try
             {
-                _db.Entry(producto).State = EntityState.Modified;
-                _db.SaveChanges();
+                var existente = _db.Productos.Find(producto.IdProducto);
+                if (existente != null)
+                {
+                    existente.Nombre = producto.Nombre;
+                    existente.Descripcion = producto.Descripcion;
+                    existente.PrecioCompra = producto.PrecioCompra;
+                    existente.PrecioVenta = producto.PrecioVenta;
+                    existente.IdCategoria = producto.IdCategoria;
+                    existente.IdMarca = producto.IdMarca;
+                    existente.IdProveedor = producto.IdProveedor;
+
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Producto no encontrado");
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception("Error al actualizar producto", ex);
             }
         }
+
 
         // Eliminar producto
         public void EliminarProducto(int id)
