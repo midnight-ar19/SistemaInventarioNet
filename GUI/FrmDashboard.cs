@@ -105,7 +105,7 @@ namespace GUI
                     formToOpen = new Interfaces.MarcaForm();
                     break;
                 case "Proveedores":
-                    formToOpen = new FormProveedor();
+                    formToOpen = new Interfaces.ProveedorForm();
                     break;
                 case "Usuarios":
                     formToOpen = new Form { Text = "Gestión de Usuarios", Size = new Size(600, 400) };

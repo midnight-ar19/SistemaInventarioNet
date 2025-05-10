@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EL;
 
@@ -64,14 +65,22 @@ namespace DAL
         {
             try
             {
-                _db.Entry(proveedor).State = EntityState.Modified;
-                _db.SaveChanges();
+                var existente = _db.Proveedores.Find(proveedor.IdProveedor);
+                if (existente != null)
+                {
+                    existente.Nombre = proveedor.Nombre;
+                    existente.Contacto = proveedor.Contacto;
+                    existente.Telefono = proveedor.Telefono;
+                    existente.Direccion = proveedor.Direccion;
+                    _db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception("Error al actualizar el proveedor", ex);
             }
         }
+
 
         // Eliminar proveedor
         public void EliminarProveedor(int id)

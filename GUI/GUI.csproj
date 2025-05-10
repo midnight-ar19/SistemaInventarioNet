@@ -100,6 +100,9 @@
     <Compile Include="Interfaces\MarcaForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Interfaces\ProveedorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="InventarioDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\MarcaForm.resx">
       <DependentUpon>MarcaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\ProveedorForm.resx">
+      <DependentUpon>ProveedorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\FormCategoria.resx">
       <DependentUpon>FormCategoria.cs</DependentUpon>
