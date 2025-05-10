@@ -105,7 +105,7 @@ namespace GUI
                     formToOpen = new FrmMarca();
                     break;
                 case "Proveedores":
-                    formToOpen = new Form { Text = "Gestión de Proveedores", Size = new Size(600, 400) };
+                    formToOpen = new FormProveedor();
                     break;
                 case "Usuarios":
                     formToOpen = new Form { Text = "Gestión de Usuarios", Size = new Size(600, 400) };

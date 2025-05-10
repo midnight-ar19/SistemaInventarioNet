@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,7 @@ namespace DAL
             _db = db;
         }
 
-        //Obtener listado de todos los proveedores
-
+        // Obtener listado de todos los proveedores
         public List<Proveedor> ObtenerProveedores()
         {
             try
@@ -28,10 +28,11 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al obtener los proveedor", ex);
+                throw new Exception("Error al obtener los proveedores", ex);
             }
         }
-        //Agregar nuevo proveedor
+
+        // Agregar nuevo proveedor
         public void AgregarProveedor(Proveedor proveedor)
         {
             try
@@ -44,7 +45,8 @@ namespace DAL
                 throw new Exception("Error al agregar proveedor", ex);
             }
         }
-        //Buscar proveedor
+
+        // Buscar proveedor
         public Proveedor BuscarProveedor(int id)
         {
             try
@@ -56,20 +58,22 @@ namespace DAL
                 throw new Exception("Error al buscar proveedor", ex);
             }
         }
-        //Actualizar proveedor
+
+        // Actualizar proveedor
         public void ActualizarProveedor(Proveedor proveedor)
         {
             try
             {
-                _db.Entry(proveedor);
+                _db.Entry(proveedor).State = EntityState.Modified;
                 _db.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al actualizar el proveedor");
+                throw new Exception("Error al actualizar el proveedor", ex);
             }
         }
-        //Eliminar proveedor
+
+        // Eliminar proveedor
         public void EliminarProveedor(int id)
         {
             try

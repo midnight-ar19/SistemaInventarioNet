@@ -116,7 +116,7 @@
             this.buttonAgregar.TabIndex = 8;
             this.buttonAgregar.Text = "Agregar";
             this.buttonAgregar.UseVisualStyleBackColor = true;
-            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
+            //this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // buttonBuscar
             // 
@@ -126,7 +126,7 @@
             this.buttonBuscar.TabIndex = 9;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
-            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            //this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // buttonEliminar
             // 
@@ -136,7 +136,7 @@
             this.buttonEliminar.TabIndex = 10;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+           // this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonActualizar
             // 
@@ -146,7 +146,7 @@
             this.buttonActualizar.TabIndex = 11;
             this.buttonActualizar.Text = "Actualizar";
             this.buttonActualizar.UseVisualStyleBackColor = true;
-            this.buttonActualizar.Click += new System.EventHandler(this.buttonActualizar_Click);
+           // this.buttonActualizar.Click += new System.EventHandler(this.buttonActualizar_Click);
             // 
             // labelContacto
             // 
@@ -185,7 +185,7 @@
             this.Controls.Add(this.labelNombreProveedor);
             this.Name = "FormProveedor";
             this.Text = "FormProveedor";
-            this.Load += new System.EventHandler(this.FormProveedor_Load);
+           // this.Load += new System.EventHandler(this.FormProveedor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
