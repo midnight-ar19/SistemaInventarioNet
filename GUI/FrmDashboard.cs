@@ -102,7 +102,7 @@ namespace GUI
                     formToOpen = new Interfaces.CategoriaForm();
                     break;
                 case "Marcas":
-                    formToOpen = new FrmMarca();
+                    formToOpen = new Interfaces.MarcaForm();
                     break;
                 case "Proveedores":
                     formToOpen = new FormProveedor();

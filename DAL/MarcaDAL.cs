@@ -62,8 +62,12 @@ namespace DAL
         {
             try
             {
-                _db.Entry(marca);
-                _db.SaveChanges(); 
+                var existente = _db.Marcas.Find(marca.IdMarca);
+                if (existente != null)
+                {
+                    existente.Nombre = marca.Nombre;
+                    _db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
