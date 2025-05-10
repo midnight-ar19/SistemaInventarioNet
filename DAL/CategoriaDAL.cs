@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,14 +58,19 @@ namespace DAL
         {
             try
             {
-                _db.Entry(categoria);
-                _db.SaveChanges();
+                var existente = _db.Categorias.Find(categoria.IdCategoria);
+                if (existente != null)
+                {
+                    existente.Nombre = categoria.Nombre;
+                    _db.SaveChanges();
+                }
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
 
         public void EliminarCategoria(int id)
         {

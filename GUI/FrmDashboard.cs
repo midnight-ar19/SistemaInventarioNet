@@ -99,7 +99,7 @@ namespace GUI
             switch (section)
             {
                 case "Categorías":
-                    formToOpen = new FrmCategorias();
+                    formToOpen = new Interfaces.CategoriaForm();
                     break;
                 case "Marcas":
                     formToOpen = new FrmMarca();
