@@ -60,7 +60,7 @@ namespace GUI
             sidebarPanel.Controls.Add(lblLogo);
 
             // Crear botones del menú lateral
-            string[] menuItems = { "Categorías", "Marcas", "Proveedores", "Usuarios", "Productos", "Gestión de Inventario" };
+            string[] menuItems = { "Categorías", "Marcas", "Proveedores", "Usuarios", "Productos", "Inventario", "Movimientos" };
             for (int i = 0; i < menuItems.Length; i++)
             {
                 Button btn = new Button
@@ -113,15 +113,18 @@ namespace GUI
                 case "Productos":
                     formToOpen = new Interfaces.FormProductos();
                     break;
-                case "Gestión de Inventario":
-                    formToOpen = new Form { Text = "Gestión de Inventario", Size = new Size(600, 400) };
+                case "Inventario":
+                    formToOpen = new Interfaces.FormInventario();
+                    break;
+                case "Movimientos":
+                    formToOpen = new Interfaces.FormMovimientoInventario();
                     break;
             }
 
             if (formToOpen != null)
             {
                 formToOpen.StartPosition = FormStartPosition.CenterParent;
-                formToOpen.ShowDialog();
+                formToOpen.Show();
             }
         }
 

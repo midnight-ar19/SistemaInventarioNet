@@ -97,7 +97,13 @@
     <Compile Include="Interfaces\CategoriaForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Interfaces\FormInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Interfaces\MarcaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\MovimientoInventarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaces\ProductoForm.cs">
@@ -163,8 +169,14 @@
     <EmbeddedResource Include="Interfaces\CategoriaForm.resx">
       <DependentUpon>CategoriaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FormInventario.resx">
+      <DependentUpon>FormInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\MarcaForm.resx">
       <DependentUpon>MarcaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\MovimientoInventarioForm.resx">
+      <DependentUpon>MovimientoInventarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\ProductoForm.resx">
       <DependentUpon>ProductoForm.cs</DependentUpon>
