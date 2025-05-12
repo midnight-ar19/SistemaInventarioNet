@@ -145,7 +145,8 @@ namespace GUI.Interfaces
         {
             try
             {
-                var  p = new EL.Producto
+
+                var p = new EL.Producto
                 {
                     Nombre = txtNombre.Text,
                     Descripcion = txtDescripcion.Text,
@@ -155,6 +156,12 @@ namespace GUI.Interfaces
                     IdMarca = (int)cbMarca.SelectedValue,
                     IdProveedor = (int)cbProveedor.SelectedValue
                 };
+
+                if (p.PrecioCompra <= 0 || p.PrecioVenta <= 0)
+                {
+                    MessageBox.Show("No se pueden agregar valores negativos o cero");
+                    return;
+                }
 
                 bll.AgregarProducto(p);
                 MessageBox.Show("Producto agregado correctamente");
@@ -184,6 +191,12 @@ namespace GUI.Interfaces
                     IdMarca = (int)cbMarca.SelectedValue,
                     IdProveedor = (int)cbProveedor.SelectedValue
                 };
+
+                if (p.PrecioCompra <= 0 || p.PrecioVenta <= 0)
+                {
+                    MessageBox.Show("No se pueden agregar valores negativos o cero");
+                    return;
+                }
 
                 bll.ActualizarProducto(p);
                 MessageBox.Show("Producto actualizado correctamente");
