@@ -64,35 +64,11 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormProveedor.Designer.cs">
-      <DependentUpon>FormProveedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCategorias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCategorias.Designer.cs">
-      <DependentUpon>FrmCategorias.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMarca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMarca.Designer.cs">
-      <DependentUpon>FrmMarca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IngresarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IngresarUsuario.Designer.cs">
-      <DependentUpon>IngresarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\CategoriaForm.cs">
       <SubType>Form</SubType>
@@ -115,59 +91,10 @@
     <Compile Include="Interfaces\ProveedorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InventarioDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InventarioDB.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InventarioDBv2DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InventarioDBv2DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InventarioDBv2DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InventarioDBv2DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InventarioDBv2DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InventarioDBv2DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InventarioDBv2DataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InventarioDBv2DataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Producto\FormCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Producto\FormCategoria.Designer.cs">
-      <DependentUpon>FormCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Producto\FormProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Producto\FormProducto.Designer.cs">
-      <DependentUpon>FormProducto.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormProveedor.resx">
-      <DependentUpon>FormProveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCategorias.resx">
-      <DependentUpon>FrmCategorias.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMarca.resx">
-      <DependentUpon>FrmMarca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IngresarUsuario.resx">
-      <DependentUpon>IngresarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\CategoriaForm.resx">
       <DependentUpon>CategoriaForm.cs</DependentUpon>
@@ -190,12 +117,6 @@
     <EmbeddedResource Include="Interfaces\ProveedorForm.resx">
       <DependentUpon>ProveedorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Producto\FormCategoria.resx">
-      <DependentUpon>FormCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Producto\FormProducto.resx">
-      <DependentUpon>FormProducto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -205,61 +126,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="InventarioDB.xsc">
-      <DependentUpon>InventarioDB.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDB.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InventarioDB.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InventarioDB.xss">
-      <DependentUpon>InventarioDB.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDBv2DataSet.xsc">
-      <DependentUpon>InventarioDBv2DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDBv2DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InventarioDBv2DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InventarioDBv2DataSet.xss">
-      <DependentUpon>InventarioDBv2DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDBv2DataSet1.xsc">
-      <DependentUpon>InventarioDBv2DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDBv2DataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InventarioDBv2DataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InventarioDBv2DataSet1.xss">
-      <DependentUpon>InventarioDBv2DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDBv2DataSet2.xsc">
-      <DependentUpon>InventarioDBv2DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDBv2DataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InventarioDBv2DataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InventarioDBv2DataSet2.xss">
-      <DependentUpon>InventarioDBv2DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDBv2DataSet3.xsc">
-      <DependentUpon>InventarioDBv2DataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="InventarioDBv2DataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InventarioDBv2DataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InventarioDBv2DataSet3.xss">
-      <DependentUpon>InventarioDBv2DataSet3.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
