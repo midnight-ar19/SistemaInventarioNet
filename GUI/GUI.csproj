@@ -100,6 +100,9 @@
     <Compile Include="Interfaces\FormInventario.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Interfaces\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Interfaces\MarcaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\FormInventario.resx">
       <DependentUpon>FormInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\MarcaForm.resx">
       <DependentUpon>MarcaForm.cs</DependentUpon>

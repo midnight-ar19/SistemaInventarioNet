@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using BLL;
 using DAL;
 using EL;
+using GUI.Interfaces;
 
 namespace GUI
 {
@@ -19,7 +20,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDashboard());
+            Application.Run(new FormLogin());
         }
 
 

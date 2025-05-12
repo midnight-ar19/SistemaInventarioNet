@@ -15,7 +15,7 @@ namespace GUI
         private Panel sidebarPanel;
         private Panel contentPanel;
 
-        public FrmDashboard()
+        public FrmDashboard(EL.Usuario usuarioLogueado)
         {
             // Configuración del formulario
             this.Text = "Sistema de Gestión";
